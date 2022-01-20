@@ -30,6 +30,14 @@ public class NetworkPlayer : MonoBehaviour
         headRig = rig.transform.Find("Camera Offset/Main Camera");
         leftHandRig = rig.transform.Find("Camera Offset/LeftHand Controller");
         rightHandRig = rig.transform.Find("Camera Offset/RightHand Controller");
+
+        if (photonView.IsMine)
+        {
+            foreach (var render in GetComponentsInChildren<Renderer> ())
+            {
+                render.enabled = false;
+            }    
+        }
     }
 
     // Update is called once per frame
@@ -37,9 +45,9 @@ public class NetworkPlayer : MonoBehaviour
     {
         if (photonView.IsMine)
         {
-            head.gameObject.SetActive(false);
+            /*head.gameObject.SetActive(false);
             leftHand.gameObject.SetActive(false);
-            rightHand.gameObject.SetActive(false);
+            rightHand.gameObject.SetActive(false);*/
             
             MapPosition(head, headRig);
             MapPosition(leftHand, leftHandRig);
