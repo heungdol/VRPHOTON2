@@ -25,4 +25,10 @@ public class XRGrabNetworkInteractable : XRGrabInteractable
         photonView.RequestOwnership();
         base.OnSelectEntered(args);
     }
+
+    /*protected override void OnSelectExited(SelectExitEventArgs args)
+    {
+        photonView.GetComponents<>()
+        base.OnSelectExited(args);
+    }*/
 }
